@@ -8,8 +8,6 @@ export default Route.extend({
 
   actions: {
 
-
-
     saveLibrary(library) {
       library.save().then(() => this.transitionTo('libraries'));
     },
