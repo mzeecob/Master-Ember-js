@@ -1,10 +1,11 @@
-<h1>Invitations</h1>
+<h1>Contacts</h1>
 
 <table class="table table-bordered table-striped">
     <thead>
     <tr>
         <th>ID</th>
         <th>E-mail</th>
+        <th>Action</th>
     </tr>
     </thead>
     <tbody>
@@ -12,6 +13,7 @@
         <tr>
             <td>{{contact.id}}</td>
             <td>{{contact.email}}</td>
+            <td><button class="btn btn-danger btn-xs" {{action 'deleteLibrary' contact}}>Delete</button></td>
         </tr>
     {{/each}}
     </tbody>

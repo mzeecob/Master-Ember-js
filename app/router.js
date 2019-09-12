@@ -11,7 +11,7 @@ Router.map(function() {
 
   this.route('admin', function() {
     this.route('invitations');
-    this.route('contacts.hbs');
+    this.route('contacts');
   });
   this.route('contact');
 
