@@ -7,6 +7,8 @@ export default Model.extend({
   address: attr('string'),
   phone: attr('string'),
 
+  books: DS.hasMany('book'),
+
   isValid: notEmpty('name')
 
 });
