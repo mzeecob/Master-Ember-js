@@ -18,4 +18,5 @@ export default Route.extend({
 
     this._super(controller, model);
   }
+
 });
