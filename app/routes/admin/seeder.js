@@ -15,7 +15,6 @@ export default Route.extend({
     controller.set('libraries', model.libraries);
     controller.set('books', model.books);
     controller.set('authors', model.authors);
-
     this._super(controller, model);
   }
 
