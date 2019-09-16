@@ -1,42 +1,54 @@
-<div class="container">
 
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-              {{#link-to 'index' class="navbar-brand"}}Library App{{/link-to}}
-            </div>
+{{#link-to 'index' tagName="li"}}<a href="">
+  {{#if session.isAuthenticated}}
+      Logged in as {{ session.data.authenticated.user.displayName }}
 
-            <div class="collapse navbar-collapse" id="main-navbar">
-                <ul class="nav navbar-nav">
-                  {{#link-to 'index' tagName="li"}}<a href="">Home</a>{{/link-to}}
-                  {{#link-to 'libraries' tagName="li"}}<a href="">Libraries</a>{{/link-to}}
-                  {{#link-to 'about' tagName="li"}}<a href="">About</a>{{/link-to}}
-                  {{#link-to 'contact' tagName="li"}}<a href>Contact</a>{{/link-to}}
+      <div class="container">
 
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                Admin<span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu">
-                              {{#link-to 'admin.invitations' tagName="li"}}<a href="">Invitations</a>{{/link-to}}
-                              {{#link-to 'admin.contacts' tagName="li"}}<a href="">Contacts</a>{{/link-to}}
-                              {{#nav-link-to 'admin.seeder'}}Seeder{{/nav-link-to}}
-                              {{#nav-link-to 'authors'}}Authors{{/nav-link-to}}
-                              {{#nav-link-to 'books'}}Books{{/nav-link-to}}
-                            </ul>
-                        </li>
-                    </ul>
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-    </nav>
 
-  {{outlet}}
-</div>
+          <nav class="navbar navbar-inverse">
+              <div class="container-fluid">
+                  <div class="navbar-header">
+                      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar">
+                          <span class="sr-only">Toggle navigation</span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                      </button>
+                    {{#link-to 'index' class="navbar-brand"}}Library App{{/link-to}}
+                  </div>
+
+                  <div class="collapse navbar-collapse" id="main-navbar">
+                      <ul class="nav navbar-nav">
+                        {{#link-to 'index' tagName="li"}}<a href="">Home</a>{{/link-to}}
+                        {{#link-to 'libraries' tagName="li"}}<a href="">Libraries</a>{{/link-to}}
+                        {{#link-to 'about' tagName="li"}}<a href="">About</a>{{/link-to}}
+                        {{#link-to 'contact' tagName="li"}}<a href>Contact</a>{{/link-to}}
+
+                          <ul class="nav navbar-nav navbar-right">
+                              <li class="dropdown">
+                                  <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                      Admin<span class="caret"></span>
+                                  </a>
+                                  <ul class="dropdown-menu">
+                                    {{#link-to 'admin.invitations' tagName="li"}}<a href="">Invitations</a>{{/link-to}}
+                                    {{#link-to 'admin.contacts' tagName="li"}}<a href="">Contacts</a>{{/link-to}}
+                                    {{#nav-link-to 'admin.seeder'}}Seeder{{/nav-link-to}}
+                                    {{#nav-link-to 'authors'}}Authors{{/nav-link-to}}
+                                    {{#nav-link-to 'books'}}Books{{/nav-link-to}}
+                                  </ul>
+                              </li>
+
+                          </ul>
+                      </ul>
+                  </div><!-- /.navbar-collapse -->
+              </div><!-- /.container-fluid -->
+          </nav>
+          <a href="" {{action "logout"}} >Sign out</a>
+
+        {{outlet}}
+      </div>
+  {{else}}
+      <a href="" {{action "login"}} >Sign in with Google</a>
+  {{/if}}</a>
+{{/link-to}}
